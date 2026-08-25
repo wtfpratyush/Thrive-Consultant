@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    font-family: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #1c1c1c;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, monospace;
+}
+
+@layer base {
+  :root {
+        --background: 0 0% 100%;
+        --foreground: 0 0% 11%;
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 11%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 11%;
+        --primary: 44 55% 50%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 0 0% 96.1%;
+        --secondary-foreground: 0 0% 9%;
+        --muted: 0 0% 96.1%;
+        --muted-foreground: 0 0% 45.1%;
+        --accent: 44 55% 50%;
+        --accent-foreground: 0 0% 9%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 89.8%;
+        --input: 0 0% 82%;
+        --ring: 44 55% 50%;
+        --radius: 0.5rem;
+    }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+}
+
+/* IFZA gold accent */
+.ifza-gold { color: #c6a03a; }
+.bg-ifza-gold { background-color: #c6a03a; }
+
+/* Heading style */
+.ifza-heading {
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* dotted decorative pattern */
+.dot-pattern {
+  background-image: radial-gradient(#c9c9c9 1.4px, transparent 1.4px);
+  background-size: 11px 11px;
+}
+
+/* Fade / slide entrance */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal { opacity: 0; }
+.reveal.in-view { animation: fadeUp 0.7s ease forwards; }
+
+input::placeholder { color: #8a8a8a; }
+
+/* hide scrollbar for country list */
+.no-scrollbar::-webkit-scrollbar { width: 6px; }
+.no-scrollbar::-webkit-scrollbar-thumb { background: #d0d0d0; border-radius: 3px; }
+
+/* horizontal swipe rows (mobile) */
+.hide-scroll::-webkit-scrollbar { display: none; }
+.hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Infinite train/marquee animation */
+@keyframes trainMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-train {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: trainMarquee 35s linear infinite;
+}
+
+.animate-train:hover {
+  animation-play-state: paused;
+}
+
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+}
+
