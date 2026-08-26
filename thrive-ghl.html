@@ -34,8 +34,12 @@
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{margin:0!important;padding:0!important;width:100%!important;max-width:100%!important;overflow-x:hidden}
-body{font-family:'Jost',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased;color:#1c1c1c;background:#fff}
+html,body{margin:0!important;padding:0!important;width:100%!important;max-width:100%!important;overflow-x:hidden;background:#070a1e}
+body{font-family:'Jost',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased;color:#1c1c1c}
+/* GHL outer container whitespace nuke */
+.hl_page-preview--content,.hl_page-preview--content>div,.hl-page-creator,.c-editor,.c-editor-section,[class*="hl_page-preview"],[id*="preview-container"]{
+  padding-top:0!important;padding-bottom:0!important;margin-top:0!important;margin-bottom:0!important;
+}
 img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;border:none;background:none;font-family:inherit}
@@ -675,23 +679,31 @@ function toggleFaq(id){const el=document.getElementById(id);el.classList.toggle(
 function scrollTests(dir){const el=document.getElementById('testRow');const amt=dir==='left'?-el.clientWidth*.85:el.clientWidth*.85;el.scrollBy({left:amt,behavior:'smooth'})}
 
 // ========== INIT ==========
+function cleanGhlWrappers(){
+  var landing=document.getElementById('thrive-app');
+  if(landing){
+    var p=landing.parentElement;
+    while(p && p!==document.documentElement){
+      p.style.setProperty('margin','0','important');
+      p.style.setProperty('margin-top','0','important');
+      p.style.setProperty('margin-bottom','0','important');
+      p.style.setProperty('padding','0','important');
+      p.style.setProperty('padding-top','0','important');
+      p.style.setProperty('padding-bottom','0','important');
+      p.style.setProperty('padding-left','0','important');
+      p.style.setProperty('padding-right','0','important');
+      p.style.setProperty('max-width','100%','important');
+      p.style.setProperty('width','100%','important');
+      p.style.setProperty('border','none','important');
+      p=p.parentElement;
+    }
+  }
+}
 document.addEventListener('DOMContentLoaded',function(){
   init();
-  // Strip padding/margin from GHL parent wrappers outside #thrive-app
-  setTimeout(function(){
-    var landing=document.getElementById('thrive-app');
-    if(landing){
-      var p=landing.parentElement;
-      while(p && p!==document.documentElement){
-        p.style.setProperty('margin','0','important');
-        p.style.setProperty('padding-left','0','important');
-        p.style.setProperty('padding-right','0','important');
-        p.style.setProperty('max-width','100%','important');
-        p.style.setProperty('width','100%','important');
-        p=p.parentElement;
-      }
-    }
-  },100);
+  cleanGhlWrappers();
+  setTimeout(cleanGhlWrappers,50);
+  setTimeout(cleanGhlWrappers,300);
 });
 </script>
 </body>
