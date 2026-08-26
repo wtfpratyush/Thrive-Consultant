@@ -12,12 +12,18 @@
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{margin:0!important;padding:0!important;width:100%!important;overflow-x:hidden}
+html,body{margin:0!important;padding:0!important;width:100%!important;max-width:100%!important;overflow-x:hidden}
 body{font-family:'Jost',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased;color:#1c1c1c;background:#fff}
-/* GHL override – force parent containers to have no margins/padding */
-.container,.row,.col,.col-12,.hl_page-preview--content,.hl-page-creator,
-[class*="section_"],[class*="container"],[id*="section"],[id*="preview"]{
-  margin:0!important;padding-left:0!important;padding-right:0!important;max-width:100%!important;width:100%!important;
+/* GHL override – nuke ALL parent wrapper margins/padding */
+html>body>div,body>div,body>div>div,body>div>div>div,
+.container,.row,.col,.col-12,.col-lg-12,.col-md-12,.col-sm-12,.col-xs-12,
+.inner,.section,.hl_page-preview--content,.hl-page-creator,.c-editor,
+.lc-block,.lc_text_block,.lc_html_block,.lc_code_block,
+#preview-container,#preview,.page-content,.site-page,
+[class*="section"],[class*="container"],[class*="column"],[class*="inner"],
+[class*="preview"],[class*="block"],[class*="wrapper"],[class*="content"],
+[id*="section"],[id*="preview"],[id*="container"],[id*="content"]{
+  margin:0!important;padding:0!important;max-width:100%!important;width:100%!important;border:none!important;
 }
 img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
@@ -655,7 +661,14 @@ function toggleFaq(id){const el=document.getElementById(id);el.classList.toggle(
 function scrollTests(dir){const el=document.getElementById('testRow');const amt=dir==='left'?-el.clientWidth*.85:el.clientWidth*.85;el.scrollBy({left:amt,behavior:'smooth'})}
 
 // ========== INIT ==========
-document.addEventListener('DOMContentLoaded',init);
+document.addEventListener('DOMContentLoaded',function(){
+  init();
+  // Strip margins/padding from ALL parent wrappers (GHL fix)
+  setTimeout(function(){
+    var el=document.querySelector('.hero');
+    if(el){var p=el.parentElement;while(p&&p!==document.documentElement){p.style.cssText='margin:0!important;padding:0!important;max-width:100%!important;width:100%!important;border:none!important;';p=p.parentElement;}}
+  },100);
+});
 </script>
 </body>
 </html>
