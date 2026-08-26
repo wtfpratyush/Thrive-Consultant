@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#0a0e2a"/>
+<meta name="description" content="Thrive Consultant - UAE Company Formation & Business Setup"/>
+<title>Thrive Consultant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Jost',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased;color:#1c1c1c;background:#fff}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+input,select,textarea{font-family:inherit}
+ul{list-style:none}
+
+/* Utility */
+.sc{max-width:1200px;margin:0 auto;padding-left:1.5rem;padding-right:1.5rem}
+.ifza-gold{color:#c6a03a}
+.ifza-heading{font-weight:300;line-height:1.08;letter-spacing:-0.01em}
+.dot-pattern{background-image:radial-gradient(#c9c9c9 1.4px,transparent 1.4px);background-size:11px 11px}
+.hide-scroll::-webkit-scrollbar{display:none}.hide-scroll{-ms-overflow-style:none;scrollbar-width:none}
+input::placeholder{color:#8a8a8a}
+
+/* Marquee */
+@keyframes trainMarquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.animate-train{display:flex;width:max-content;will-change:transform;animation:trainMarquee 35s linear infinite}
+.animate-train:hover{animation-play-state:paused}
+.marquee-mask{mask-image:linear-gradient(to right,transparent 0%,black 4%,black 96%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 4%,black 96%,transparent 100%)}
+
+/* ---- RESPONSIVE GRID HELPERS ---- */
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr)}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr)}
+.grid-12{display:grid;grid-template-columns:repeat(12,1fr)}
+.flex-row{display:flex;flex-direction:row}.flex-col{display:flex;flex-direction:column}
+.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}
+.text-center{text-align:center}
+.relative{position:relative}.absolute{position:absolute}
+.overflow-hidden{overflow:hidden}
+.rounded-full{border-radius:9999px}
+.rounded-xl{border-radius:0.75rem}
+.rounded-2xl{border-radius:1rem}
+.w-full{width:100%}
+.hidden{display:none}
+
+/* Swipe row for mobile */
+.swipe-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-ms-overflow-style:none;scrollbar-width:none;padding-bottom:0.5rem;margin-left:-1.5rem;padding-left:1.5rem;margin-right:-1.5rem;padding-right:1.5rem}
+.swipe-row::-webkit-scrollbar{display:none}
+.swipe-item{scroll-snap-align:center;flex-shrink:0;width:78%}
+
+/* --- HERO --- */
+.hero{position:relative;width:100%;min-height:560px}
+.hero-bg{position:absolute;inset:0}.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.8),rgba(0,0,0,.45),rgba(0,0,0,.1))}
+.hero-header{position:relative;z-index:20;padding-top:1.5rem}
+.hero-content{position:relative;z-index:10;padding-top:2rem;padding-bottom:3rem}
+.hero-grid{display:grid;gap:2rem;align-items:center}
+.hero-left{max-width:540px;padding-top:0.5rem}
+.hero h1{color:#fff;font-size:38px;line-height:1.05}
+.hero h1 span{font-weight:700}
+.hero-sub{margin-top:1.25rem;color:rgba(255,255,255,.8);font-size:15px;line-height:1.7;max-width:420px}
+.hero-bullets{margin-top:1.75rem;display:flex;flex-direction:column;gap:0.875rem}
+.hero-bullet{display:flex;align-items:center;gap:0.875rem;color:#c6a03a;font-size:15px}
+.hero-bullet .circle{flex-shrink:0;width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center}
+.hero-bullet .circle svg{color:#fff}
+.hero-form-desktop{display:none}
+
+/* Form */
+.consultation-form{background:#fff;box-shadow:0 10px 40px rgba(0,0,0,.15);padding:1.5rem;width:100%;max-width:520px;margin:0 auto}
+.consultation-form h2{font-size:26px;color:#1c1c1c;margin-bottom:1.25rem;line-height:1.15}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:0.875rem}
+.form-input{width:100%;background:transparent;border:none;border-bottom:1px solid #d5d5d5;padding:0.5rem 0;font-size:14px;color:#1c1c1c;outline:none;transition:border-color .2s}
+.form-input:focus{border-color:#c6a03a}
+.phone-row{display:flex;align-items:flex-end;gap:0.625rem;border-bottom:1px solid #d5d5d5;margin-bottom:0.875rem}
+.phone-row:focus-within{border-color:#c6a03a}
+.phone-row select{background:transparent;border:none;padding:0.5rem 0;font-size:14px;outline:none;cursor:pointer}
+.phone-row input{flex:1;background:transparent;border:none;padding:0.5rem 0;font-size:14px;outline:none}
+.setup-select{width:100%;background:transparent;border:none;border-bottom:1px solid #d5d5d5;padding:0.5rem 0;font-size:14px;color:#5a5a5a;outline:none;cursor:pointer;margin-bottom:1rem;-webkit-appearance:none}
+.consent-group{display:flex;flex-direction:column;gap:0.625rem;margin-bottom:1.25rem;font-size:12px;color:#4a4a4a;line-height:1.4}
+.consent-label{display:flex;gap:0.625rem;align-items:flex-start;cursor:pointer}
+.consent-label input[type=checkbox]{margin-top:2px;accent-color:#0a0e2a;width:16px;height:16px;flex-shrink:0}
+.form-submit{width:100%;background:#0a0e2a;color:#fff;padding:0.875rem;display:flex;align-items:center;justify-content:center;gap:0.625rem;font-size:13.5px;letter-spacing:0.12em;font-weight:500;transition:background .2s;border:none}
+.form-submit:hover{background:#161c48}
+.form-mobile{padding-top:2rem;padding-bottom:1rem}
+
+/* STATS BAR */
+.stats-bar{background:#0a0e2a;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);padding:0.875rem 0;overflow:hidden;user-select:none}
+.stats-item{display:flex;align-items:center;gap:0.875rem;margin:0 0.75rem;flex-shrink:0}
+.stats-item span{font-size:13px;letter-spacing:0.03em}
+.stats-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:rgba(198,160,58,.75);flex-shrink:0}
+
+/* QUICK BENEFITS */
+.qb-mobile{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem 1.25rem}
+.qb-mobile h3{font-size:15px;font-weight:700;color:#c6a03a;margin-bottom:0.25rem;line-height:1.3}
+.qb-mobile p{font-size:12px;line-height:1.6;color:#3a3a3a}
+.qb-line{width:32px;height:2px;background:#c6a03a;margin-top:0.75rem}
+.qb-desktop{display:none}
+.qb-card{position:relative}
+.qb-icon{width:56px;height:56px;border-radius:50%;background:#faf6ee;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;transition:background .3s}
+.qb-card:hover .qb-icon{background:#c6a03a}
+.qb-card:hover .qb-icon svg{color:#fff}
+.qb-card h3{font-size:19px;font-weight:500;color:#0a0e2a;margin-bottom:0.625rem}
+.qb-card p{font-size:14px;line-height:1.6;color:#5a5a5a}
+
+/* KEY BENEFITS */
+.kb-section{position:relative;background:#faf7f2;padding:3.5rem 0;overflow:hidden}
+.kb-tag{display:flex;align-items:center;gap:0.625rem;margin-bottom:0.875rem}
+.kb-tag span:first-child{width:24px;height:2px;background:#c6a03a}
+.kb-tag span:last-child{font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#c6a03a}
+.kb-mobile{display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem;margin-top:2rem}
+.kb-mobile-card{background:#fff;border-radius:0.75rem;padding:1rem;border:1px solid #e5e7eb;box-shadow:0 1px 3px rgba(0,0,0,.04);display:flex;flex-direction:column;cursor:pointer;transition:transform .2s}
+.kb-mobile-card:active{transform:scale(.98)}
+.kb-icon-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem}
+.kb-icon-box{width:40px;height:40px;border-radius:0.5rem;display:flex;align-items:center;justify-content:center}
+.kb-mobile-card h3{font-size:13.5px;font-weight:700;color:#111827;line-height:1.3;margin-bottom:0.375rem}
+.kb-mobile-card p{font-size:11px;line-height:1.6;color:#4b5563}
+.kb-desktop{display:none}
+.kb-desktop-card{background:#fff;border-radius:1rem;padding:1.75rem 2rem;border:1px solid #e5e7eb;box-shadow:0 2px 10px rgba(0,0,0,.03);display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:all .3s}
+.kb-desktop-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.08);border-color:rgba(198,160,58,.4);transform:translateY(-4px)}
+
+/* FREE ZONES */
+.fz-grid{margin-top:2.5rem}
+.fz-card{display:flex;flex-direction:column;background:#fff;border:1px solid #e5e7eb;border-radius:1rem;overflow:hidden;transition:all .3s}
+.fz-card:hover{box-shadow:0 12px 36px rgba(0,0,0,.08);transform:translateY(-4px)}
+.fz-img{position:relative;height:200px;overflow:hidden;background:#f3f3f3}
+.fz-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.fz-card:hover .fz-img img{transform:scale(1.05)}
+.fz-badge{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);padding:0.25rem 0.75rem;border-radius:9999px;font-size:12px;font-weight:600;color:#1c1c1c;display:flex;align-items:center;gap:0.375rem;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.fz-badge-dot{width:8px;height:8px;border-radius:50%}
+.fz-body{padding:1.5rem;display:flex;flex-direction:column;flex:1}
+.fz-body h3{font-size:20px;font-weight:700;color:#111827;line-height:1.3;margin-bottom:0.75rem}
+.fz-body>p{font-size:13.5px;line-height:1.6;color:#4b5563;margin-bottom:1.5rem;flex:1}
+.fz-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem}
+.fz-tag{font-size:12px;font-weight:500;background:#f4efe6;color:#4a4a4a;padding:0.375rem 0.75rem;border-radius:9999px}
+.fz-link{display:flex;align-items:center;gap:0.375rem;font-size:14px;font-weight:600;transition:gap .3s;background:none;border:none;cursor:pointer}
+.fz-card:hover .fz-link{gap:0.625rem}
+.fz-callout{margin-top:2.5rem;background:#f6f2ea;border:1px solid #ebe5d8;border-radius:1rem;padding:1.25rem;display:flex;flex-direction:column;gap:1rem}
+.fz-callout p{font-size:15px;color:#1c1c1c;line-height:1.6;max-width:640px}
+.fz-callout-btn{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;background:#111827;color:#fff;padding:0.75rem 1.5rem;border-radius:9999px;font-size:14px;font-weight:600;transition:background .2s;white-space:nowrap;align-self:flex-start;border:none}
+.fz-callout-btn:hover{background:#1f2937}
+
+/* BUSINESS ACTIVITIES */
+.ba-section{background:#0a0e2a;padding:3.5rem 0}
+.ba-label{font-size:13px;text-transform:uppercase;letter-spacing:0.2em;color:#c6a03a;margin-top:2.5rem;margin-bottom:1.5rem}
+.ba-grid{display:grid;gap:1.25rem}
+.ba-card{display:flex;align-items:flex-start;gap:1rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:1.5rem;transition:all .3s}
+.ba-card:hover{background:rgba(255,255,255,.08);border-color:rgba(198,160,58,.5)}
+.ba-icon{width:44px;height:44px;flex-shrink:0;border-radius:0.5rem;background:#c6a03a;display:flex;align-items:center;justify-content:center}
+.ba-icon svg{color:#0a0e2a}
+.ba-card h3{color:#fff;font-size:16px;font-weight:500;margin-bottom:0.25rem}
+.ba-card p{font-size:13.5px;color:rgba(255,255,255,.6);line-height:1.6}
+.ba-cta{margin-top:2rem;display:inline-flex;align-items:center;justify-content:center;gap:0.75rem;background:#c6a03a;color:#0a0e2a;padding:1rem 2rem;font-size:13px;letter-spacing:0.14em;font-weight:600;transition:background .2s;border:none;width:100%}
+.ba-cta:hover{background:#d4b04a}
+
+/* THRIVE SERVICES */
+.ts-mobile{display:grid;grid-template-columns:repeat(2,1fr);gap:0.875rem;margin-top:2rem}
+.ts-mobile-card{border:1px solid #c6a03a;padding:1.25rem;text-align:center;display:flex;flex-direction:column;align-items:center}
+.ts-mobile-icon{width:56px;height:56px;border-radius:50%;background:#c6a03a;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.ts-mobile-icon svg{color:#fff}
+.ts-mobile-card h3{font-size:14px;font-weight:700;color:#0a0e2a;margin-bottom:0.375rem;line-height:1.3}
+.ts-mobile-card p{font-size:11.5px;line-height:1.6;color:#5a5a5a}
+.ts-desktop{display:none}
+.ts-desktop-card{text-align:center;padding:1.5rem 2.5rem;border:1px solid #eee;transition:all .3s}
+.ts-desktop-card:hover{border-color:#c6a03a;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.ts-desktop-icon{width:64px;height:64px;border-radius:50%;background:#faf6ee;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;transition:background .3s}
+.ts-desktop-card:hover .ts-desktop-icon{background:#c6a03a}
+.ts-desktop-card:hover .ts-desktop-icon svg{color:#fff}
+.ts-desktop-card h3{font-size:17px;font-weight:500;color:#0a0e2a;margin-bottom:0.625rem}
+.ts-desktop-card p{font-size:13.5px;line-height:1.6;color:#5a5a5a}
+
+/* FEATURED OFFER */
+.offer-card{margin-top:3.5rem;background:#111319;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 10px 40px rgba(0,0,0,.2);display:grid}
+.offer-left{padding:1.75rem}
+.offer-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);padding:0.375rem 0.875rem;border-radius:9999px;font-size:11px;font-weight:600;letter-spacing:0.08em;color:rgba(255,255,255,.9);text-transform:uppercase;margin-bottom:1.25rem}
+.offer-left h3{font-size:28px;font-weight:700;color:#fff;line-height:1.12;margin-bottom:0.875rem}
+.offer-highlight{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:1rem;padding:1.25rem;margin-bottom:1.5rem}
+.offer-checklist{display:flex;flex-direction:column;gap:0.625rem;margin-bottom:1.75rem;font-size:13px;color:rgba(255,255,255,.85)}
+.offer-check-item{display:flex;align-items:center;gap:0.625rem}
+.offer-check-circle{width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.offer-btn{display:inline-flex;align-items:center;gap:0.5rem;background:#fff;color:#0a0e2a;padding:0.875rem 1.75rem;border-radius:9999px;font-weight:600;font-size:14px;transition:background .2s;box-shadow:0 4px 12px rgba(0,0,0,.1);border:none}
+.offer-btn:hover{background:#faf7f2}
+.offer-right{position:relative;min-height:380px;overflow:hidden}
+.offer-right img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.offer-float{position:absolute;bottom:1.5rem;right:1.5rem;background:#fff;border-radius:1rem;padding:0.875rem 1.25rem;box-shadow:0 8px 24px rgba(0,0,0,.12);text-align:center;user-select:none}
+
+/* BANK SECTION */
+.bank-section{position:relative;overflow:hidden}
+.bank-section img{width:100%;height:420px;object-fit:cover}
+.bank-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.7),rgba(0,0,0,.25),transparent)}
+.bank-content{position:absolute;inset:0;display:flex;align-items:center}
+.bank-inner{padding:2rem;max-width:520px}
+.bank-inner h2{color:#fff;font-size:38px;line-height:1.05}
+.bank-bullets{margin-top:2rem;display:flex;flex-direction:column;gap:1rem}
+.bank-bullet{display:flex;align-items:center;gap:1rem;color:#fff;font-size:16px}
+.bank-bullet .gold-circle{flex-shrink:0;width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center}
+.bank-btn{margin-top:2.25rem;border:1px solid rgba(255,255,255,.7);color:#fff;padding:0.875rem 2.25rem;font-size:13px;letter-spacing:0.15em;transition:all .2s;background:none}
+.bank-btn:hover{background:#fff;color:#1c1c1c}
+
+/* HOW IT WORKS */
+.how-mobile{position:relative;padding-left:2.5rem}
+.how-vline{position:absolute;left:15px;top:0;bottom:0;width:1px;border-left:1px dashed #c6c6c6}
+.how-step{position:relative;padding-bottom:2.5rem}
+.how-step:last-child{padding-bottom:0}
+.how-dot{position:absolute;left:-25px;top:4px;width:21px;height:21px;border-radius:50%;border-width:2px;border-style:solid;display:flex;align-items:center;justify-content:center;background:#fff}
+.how-dot-inner{width:8px;height:8px;border-radius:50%}
+.how-desktop{display:none}
+.how-desktop-grid{display:grid;grid-template-columns:repeat(4,1fr);max-width:960px;margin:0 auto}
+.how-desktop-step{text-align:center;padding:0 1.25rem}
+.how-connector{display:flex;align-items:center;margin:1rem 0}
+.how-connector span:first-child,.how-connector span:last-child{flex:1;height:1px;background:#d4d4d4}
+.how-connector-dot{width:10px;height:10px;border-radius:50%;margin:0 0.25rem;flex-shrink:0}
+
+/* WHY THRIVE */
+.wt-card{background:#0a0e2a;border-radius:28px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.1);display:grid}
+.wt-img{position:relative;min-height:320px;overflow:hidden}
+.wt-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.wt-content{padding:1.75rem}
+.wt-content h2{color:#fff;font-size:28px;line-height:1.12;letter-spacing:-0.01em}
+.wt-bullets{margin-top:1.25rem;display:flex;flex-direction:column;gap:0.75rem}
+.wt-bullet{display:flex;align-items:center;gap:0.75rem;color:#fff;font-size:14px}
+.wt-bullet .wt-circle{flex-shrink:0;width:20px;height:20px;border-radius:50%;border:1px solid #c6a03a;display:flex;align-items:center;justify-content:center}
+.wt-btn{margin-top:1.75rem;display:inline-flex;align-items:center;gap:0.625rem;border:1px solid #c6a03a;color:#c6a03a;padding:0.75rem 1.75rem;border-radius:9999px;font-size:12px;letter-spacing:0.14em;font-weight:600;transition:all .2s}
+.wt-btn:hover{background:#c6a03a;color:#0a0e2a}
+
+/* TESTIMONIALS */
+.test-header{display:flex;flex-direction:column;gap:1.5rem;margin-bottom:2rem}
+.test-arrows{display:flex;gap:0.625rem;align-self:flex-end}
+.test-arrow{width:40px;height:40px;border-radius:50%;border:1px solid #d5d5d5;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.test-arrow:hover{border-color:#c6a03a;color:#c6a03a}
+.test-arrow:disabled{opacity:.3;cursor:default}
+.test-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:1.25rem;padding-bottom:0.75rem;margin:0 -1.5rem;padding-left:1.5rem;padding-right:1.5rem}
+.test-row::-webkit-scrollbar{display:none}.test-row{-ms-overflow-style:none;scrollbar-width:none}
+.test-card{scroll-snap-align:start;flex-shrink:0;width:84%;background:#fff;border:1px solid #e5e5e5;border-radius:0.75rem;padding:1.5rem;display:flex;flex-direction:column;transition:all .3s}
+.test-card:hover{border-color:rgba(198,160,58,.6);box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.test-avatar{width:44px;height:44px;border-radius:50%;background:#1c1c1c;color:#c6a03a;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:600;flex-shrink:0}
+.test-name{font-weight:600;font-size:15px;color:#1c1c1c}
+.test-stars{color:#f0a500;font-size:13px;letter-spacing:0.1em}
+.test-text{font-size:13.5px;line-height:1.6;color:#4a4a4a;margin-top:1rem}
+
+/* FAQ */
+.faq-tabs{display:flex;gap:0.5rem;overflow-x:auto;padding-bottom:0.5rem;margin:0 -1.5rem;padding-left:1.5rem;padding-right:1.5rem;margin-bottom:2rem;flex-wrap:nowrap}
+.faq-tabs::-webkit-scrollbar{display:none}.faq-tabs{-ms-overflow-style:none;scrollbar-width:none}
+.faq-tab{white-space:nowrap;padding:0.5rem 1rem;border-radius:9999px;font-size:13px;font-weight:500;transition:all .2s;flex-shrink:0;border:none}
+.faq-tab.active{background:#0a0e2a;color:#fff;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+.faq-tab:not(.active){background:#f4f0e6;color:#555}
+.faq-tab:not(.active):hover{background:#eae4d5;color:#111}
+.faq-grid{display:grid;gap:0.75rem}
+.faq-item{background:#fff;border:1px solid #e8e3d8;border-radius:0.75rem;padding:0 1.25rem;transition:border-color .2s}
+.faq-item:hover{border-color:rgba(198,160,58,.6)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:0.875rem 0;cursor:pointer;font-size:14.5px;font-weight:500;color:#1c1c1c}
+.faq-q svg{flex-shrink:0;color:#c6a03a;transition:transform .3s}
+.faq-item.open .faq-q svg{transform:rotate(45deg)}
+.faq-a{font-size:13.5px;line-height:1.6;color:#5a5a5a;padding-bottom:1rem;padding-right:0.75rem;border-top:1px solid #f0ece3;padding-top:0.75rem;display:none}
+.faq-item.open .faq-a{display:block}
+
+/* CTA */
+.final-cta{position:relative;width:100%}
+.final-cta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.final-cta-overlay{position:absolute;inset:0;background:rgba(10,14,42,.85)}
+.final-cta-inner{position:relative;z-index:10;padding:6rem 0;text-align:center;display:flex;flex-direction:column;align-items:center}
+.cta-btn{margin-top:2.5rem;display:inline-flex;align-items:center;gap:0.75rem;background:#c6a03a;color:#0a0e2a;padding:1.1rem 2.5rem;font-size:14px;letter-spacing:0.14em;font-weight:600;transition:background .2s;border:none}
+.cta-btn:hover{background:#d4b04a}
+
+/* FOOTER */
+.site-footer{background:#070a1e;color:rgba(255,255,255,.6);padding:2rem 0}
+.footer-inner{display:flex;flex-direction:column;align-items:center;gap:1.5rem}
+.footer-links{display:flex;gap:2rem;font-size:13px}
+.footer-links a:hover{color:#fff}
+
+/* ======= DESKTOP ======= */
+@media(min-width:768px){
+  .hero h1{font-size:56px}
+  .hero-sub{font-size:16px}
+  .hero-bullets{gap:1rem}
+  .hero-bullet{font-size:16px}
+  .hero-grid{grid-template-columns:7fr 5fr;gap:2.5rem}
+  .hero-form-desktop{display:block}
+  .hero-content{padding-top:2.5rem;padding-bottom:4rem}
+  .form-mobile{display:none}
+  .consultation-form h2{font-size:30px;padding-left:3.5rem}
+  .qb-mobile{display:none}
+  .qb-desktop{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+  .kb-section{padding:6rem 0}
+  .kb-mobile{display:none}
+  .kb-desktop{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3.5rem}
+  .fz-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .fz-callout{flex-direction:row;align-items:center;padding:1.5rem 2rem}
+  .ba-section{padding:6rem 0}
+  .ba-grid{grid-template-columns:repeat(3,1fr)}
+  .ba-cta{width:auto}
+  .ts-mobile{display:none}
+  .ts-desktop{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3.5rem}
+  .offer-card{grid-template-columns:1fr 1fr}
+  .offer-left{padding:3rem}
+  .offer-left h3{font-size:38px}
+  .bank-section img{height:560px}
+  .bank-inner{padding:2rem 4rem}
+  .bank-inner h2{font-size:52px}
+  .how-mobile{display:none}
+  .how-desktop{display:block}
+  .wt-card{grid-template-columns:5fr 7fr}
+  .wt-content{padding:3.5rem}
+  .wt-content h2{font-size:40px}
+  .wt-bullets{gap:0.875rem}
+  .wt-bullet{font-size:15.5px}
+  .test-header{flex-direction:row;align-items:center;justify-content:space-between}
+  .test-arrows{align-self:auto}
+  .test-card{width:calc(33.333% - 14px)}
+  .test-row{margin:0;padding-left:0;padding-right:0}
+  .faq-tabs{flex-wrap:wrap;margin:0;padding-left:0;padding-right:0}
+  .faq-grid{grid-template-columns:repeat(2,1fr);gap:0.75rem 1.5rem}
+  .final-cta-inner{padding:8rem 0}
+  .footer-inner{flex-direction:row;justify-content:space-between}
+  .swipe-row{display:grid;overflow:visible;margin:0;padding:0}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== 01: HERO ========== -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://ifza.com/wp-content/uploads/2026/03/set-up-business-dubai-ifza.webp" alt="Dubai business setup"/>
+    <div class="hero-overlay"></div>
+  </div>
+  <header class="hero-header sc">
+    <img src="https://customer-assets-eiarnc6j.emergentagent.net/job_free-zone-promo/artifacts/1b5s898a_Group%2042.png" alt="Thrive" style="height:48px;width:auto;object-fit:contain;user-select:none"/>
+  </header>
+  <div class="hero-content sc">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <h1 class="ifza-heading">Launch &amp; Scale Your Dubai Business <span>Remotely</span></h1>
+        <p class="hero-sub">Build your UAE business with the right setup, the right support and a team that helps you navigate what comes next.</p>
+        <ul class="hero-bullets">
+          <li class="hero-bullet"><span class="circle"><i data-lucide="check" style="width:15px;height:15px"></i></span>Unlock UAE's low tax and benefits</li>
+          <li class="hero-bullet"><span class="circle"><i data-lucide="check" style="width:15px;height:15px"></i></span>Global Bank Access for Residents*</li>
+          <li class="hero-bullet"><span class="circle"><i data-lucide="check" style="width:15px;height:15px"></i></span>30% off Multi-Year Business Licenses*</li>
+        </ul>
+      </div>
+      <div class="hero-form-desktop" id="heroFormDesktop">
+        <!-- Form rendered by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Form Mobile -->
+<section class="form-mobile sc" id="heroFormMobile"></section>
+
+<!-- ========== STATS BAR ========== -->
+<section class="stats-bar marquee-mask">
+  <div class="animate-train" id="statsTrack"></div>
+</section>
+
+<!-- ========== 02: QUICK BENEFITS ========== -->
+<section class="sc" style="padding-top:2.5rem;padding-bottom:2rem">
+  <div class="qb-mobile" id="qbMobile"></div>
+  <div class="qb-desktop" id="qbDesktop"></div>
+  <p style="font-size:11px;color:#9a9a9a;margin-top:1.25rem">Eligibility and service scope apply.</p>
+</section>
+
+<!-- ========== 03: KEY BENEFITS ========== -->
+<section class="kb-section">
+  <div class="sc" style="position:relative;z-index:10">
+    <div style="max-width:720px">
+      <div class="kb-tag"><span></span><span>Smart Choices Today. Stronger Tomorrow.</span></div>
+      <h2 class="ifza-heading" style="font-size:32px;font-weight:700;color:#0a0e2a;letter-spacing:-0.02em">Setting Up Is Easy. <span class="ifza-gold">Choosing Right Is Harder.</span></h2>
+      <p style="margin-top:1rem;font-size:15px;line-height:1.6;color:#5a5a5a;max-width:640px">A UAE company can unlock exciting opportunities—but the decisions you make at the beginning can affect what comes next. <strong style="color:#c6a03a;font-weight:600">Thrive</strong> helps you think beyond simply getting a license issued.</p>
+    </div>
+    <div class="kb-mobile" id="kbMobile"></div>
+    <div class="kb-desktop" id="kbDesktop"></div>
+  </div>
+</section>
+
+<!-- ========== 04: FREE ZONES ========== -->
+<section class="sc" style="padding-top:3.5rem;padding-bottom:3.5rem">
+  <div style="max-width:720px">
+    <h2 class="ifza-heading" style="font-size:30px;color:#0a0e2a">Different Businesses. Different Starting Points.</h2>
+    <p style="margin-top:1.25rem;font-size:15px;line-height:1.6;color:#5a5a5a">Not every founder needs the same free zone—or the most expensive one. We help you find the setup that makes sense for what you're building.</p>
+    <p style="margin-top:1rem;font-size:14px;font-weight:500;color:#0a0e2a">Three starting points we often explore:</p>
+  </div>
+  <div class="fz-grid swipe-row" id="fzGrid"></div>
+  <div class="fz-callout">
+    <p>Not sure which one fits? That's the point. You don't have to decide before speaking to us.</p>
+    <button class="fz-callout-btn" onclick="scrollToForm()">Help Me Choose <i data-lucide="arrow-right" style="width:15px;height:15px"></i></button>
+  </div>
+</section>
+
+<!-- ========== 05: BUSINESS ACTIVITIES ========== -->
+<section class="ba-section">
+  <div class="sc">
+    <div style="max-width:720px">
+      <h2 class="ifza-heading" style="font-size:30px;color:#fff">Your Business Doesn't Have to Fit Into One Box.</h2>
+      <p style="margin-top:1.25rem;font-size:15px;line-height:1.6;color:rgba(255,255,255,.7)">Your company structure should reflect what your business actually does. Depending on your chosen free zone and approved activities, we help you explore a structure that makes practical sense today and leaves room for where you're headed.</p>
+    </div>
+    <p class="ba-label">Popular Business Categories</p>
+    <div class="ba-grid" id="baGrid"></div>
+    <p style="font-size:14px;color:rgba(255,255,255,.5);margin-top:2rem;font-style:italic">Your business is more specific than a dropdown menu.</p>
+    <button class="ba-cta" onclick="scrollToForm()">FIND YOUR STRUCTURE <i data-lucide="arrow-right" style="width:18px;height:18px"></i></button>
+  </div>
+</section>
+
+<!-- ========== 06: THRIVE SERVICES ========== -->
+<section class="sc" style="padding-top:4rem;padding-bottom:4rem">
+  <div style="max-width:720px">
+    <h2 class="ifza-heading" style="font-size:34px;color:#0a0e2a">Your License Is Just the Beginning.</h2>
+    <p style="margin-top:1.5rem;font-size:16px;line-height:1.6;color:#5a5a5a">Setting up a company is one part of the journey. Running it is another. Thrive supports your business beyond incorporation.</p>
+  </div>
+  <div class="ts-mobile" id="tsMobile"></div>
+  <div class="ts-desktop" id="tsDesktop"></div>
+
+  <!-- Featured Offer -->
+  <div class="offer-card">
+    <div class="offer-left">
+      <div class="offer-badge"><i data-lucide="gift" style="width:15px;height:15px;color:#c6a03a"></i> FEATURED THRIVE OFFER</div>
+      <h3>A Little More for<br/>Businesses Starting With<br/>Thrive</h3>
+      <p style="color:rgba(255,255,255,.75);font-size:14px;line-height:1.6;margin-bottom:1.5rem">Set up your UAE business with Thrive—and get more than just a license.</p>
+      <div class="offer-highlight">
+        <p style="color:rgba(255,255,255,.6);font-size:12px;margin-bottom:0.5rem">For a limited number of qualifying businesses, we're offering:</p>
+        <h4 style="color:#fff;font-size:15.5px;font-weight:700;line-height:1.3;margin-bottom:0.875rem">Complimentary accounting, bookkeeping and tax filing support</h4>
+        <p style="color:rgba(255,255,255,.6);font-size:11px;margin-bottom:0.25rem">for the first</p>
+        <div style="display:flex;align-items:baseline;gap:0.625rem">
+          <span style="font-size:34px;font-weight:800;color:#c6a03a;line-height:1">100</span>
+          <span style="color:#fff;font-weight:700;font-size:13px;letter-spacing:0.08em;text-transform:uppercase">COMPANY SETUPS</span>
+        </div>
+      </div>
+      <div class="offer-checklist">
+        <div class="offer-check-item"><span class="offer-check-circle"><i data-lucide="check" style="width:12px;height:12px;color:#fff"></i></span>Complimentary accounting support</div>
+        <div class="offer-check-item"><span class="offer-check-circle"><i data-lucide="check" style="width:12px;height:12px;color:#fff"></i></span>Bookkeeping handled from day one</div>
+        <div class="offer-check-item"><span class="offer-check-circle"><i data-lucide="check" style="width:12px;height:12px;color:#fff"></i></span>Tax filing support included</div>
+      </div>
+      <button class="offer-btn" onclick="scrollToForm()">Claim This Offer <i data-lucide="arrow-right" style="width:16px;height:16px;color:#c6a03a"></i></button>
+      <p style="color:rgba(255,255,255,.4);font-size:11px;margin-top:1.5rem">*Terms and service scope apply.</p>
+    </div>
+    <div class="offer-right">
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80" alt="Thrive business setup"/>
+      <div class="offer-float">
+        <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#8a8a8a;margin-bottom:2px">VALUE INCLUDED</p>
+        <p style="font-size:15px;font-weight:800;color:#c6a03a;line-height:1.2">Year 1 support</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 07: BANK SECTION ========== -->
+<section class="sc" style="padding-top:4rem;padding-bottom:3rem">
+  <div class="bank-section">
+    <img src="https://ifza.com/wp-content/uploads/2026/07/corporate-bank-support.webp" alt="Global bank account"/>
+    <div class="bank-overlay"></div>
+    <div class="bank-content">
+      <div class="bank-inner">
+        <h2 class="ifza-heading">Get Access to a Global Bank Account</h2>
+        <ul class="bank-bullets">
+          <li class="bank-bullet"><span class="gold-circle"><i data-lucide="check" style="width:14px;height:14px;color:#fff"></i></span>Set up a Bank Account Remotely</li>
+          <li class="bank-bullet"><span class="gold-circle"><i data-lucide="check" style="width:14px;height:14px;color:#fff"></i></span>Get Free Banking Support</li>
+          <li class="bank-bullet"><span class="gold-circle"><i data-lucide="check" style="width:14px;height:14px;color:#fff"></i></span>Non-resident Account Available</li>
+        </ul>
+        <button class="bank-btn" onclick="scrollToForm()">LEARN MORE</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 08: HOW IT WORKS ========== -->
+<section style="background:#fff;padding:4rem 0">
+  <div class="sc">
+    <div style="text-align:center;max-width:640px;margin:0 auto 3rem">
+      <h2 class="ifza-heading" style="font-size:32px;color:#1c1c1c">Simplified Company<br/>Formation process</h2>
+      <p style="margin-top:1rem;font-size:14.5px;color:#4b5563;line-height:1.6">Set up your business easily, with no stress. We guide you every step of the way.</p>
+    </div>
+    <div class="how-mobile" id="howMobile"></div>
+    <div class="how-desktop" id="howDesktop"></div>
+  </div>
+</section>
+
+<!-- ========== 09: WHY THRIVE ========== -->
+<section class="sc" style="padding-top:3.5rem;padding-bottom:3.5rem">
+  <div class="wt-card">
+    <div class="wt-img"><img src="https://ifza.com/wp-content/uploads/2026/07/ifza-offices-gallery-02-1024x736.webp" alt="Thrive consultation"/></div>
+    <div class="wt-content">
+      <h2 class="ifza-heading" style="font-weight:300">We Don't Start With a Package.<br/><span class="ifza-gold" style="font-weight:300">We Start With Your Business.</span></h2>
+      <p style="margin-top:1rem;color:rgba(255,255,255,.6);font-size:13px;line-height:1.6">Before recommending a free zone, we look at what actually matters:</p>
+      <ul class="wt-bullets" id="wtBullets"></ul>
+      <p style="margin-top:1.5rem;color:rgba(255,255,255,.6);font-size:12.5px;line-height:1.6;max-width:480px">Because the best setup isn't necessarily the cheapest or the most premium. <strong style="color:#fff;font-weight:600">It's the one that fits</strong>—and that's what we're here to help you find.</p>
+      <button class="wt-btn" onclick="scrollToForm()">FIND MY FIT <i data-lucide="arrow-right" style="width:15px;height:15px"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 10: TESTIMONIALS ========== -->
+<section class="sc" style="padding-top:3.5rem;padding-bottom:3.5rem">
+  <div class="test-header">
+    <div style="display:flex;align-items:center;gap:1rem">
+      <svg width="46" height="46" viewBox="0 0 48 48" style="flex-shrink:0"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.6l6.7-6.7C35.6 2.4 30.1 0 24 0 14.6 0 6.4 5.4 2.5 13.3l7.9 6.1C12.2 13.4 17.6 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.1 5.3-4.6 7l7.1 5.5c4.2-3.9 6.6-9.6 6.6-16.5z"/><path fill="#FBBC05" d="M10.4 28.6c-.5-1.4-.8-2.9-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C.9 16.4 0 20.1 0 24s.9 7.6 2.5 10.7l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.1 0 11.3-2 15-5.5l-7.1-5.5c-2 1.3-4.5 2.1-7.9 2.1-6.4 0-11.8-3.9-13.6-9.4l-7.9 6.1C6.4 42.6 14.6 48 24 48z"/></svg>
+      <h2 class="ifza-heading" style="font-size:28px;color:#0a0e2a">Trusted by Over 75,000<br/>Entrepreneurs Globally</h2>
+    </div>
+    <div class="test-arrows">
+      <button class="test-arrow" onclick="scrollTests('left')" id="testLeft"><i data-lucide="chevron-left" style="width:19px;height:19px"></i></button>
+      <button class="test-arrow" onclick="scrollTests('right')" id="testRight"><i data-lucide="chevron-right" style="width:19px;height:19px"></i></button>
+    </div>
+  </div>
+  <div class="test-row" id="testRow"></div>
+</section>
+
+<!-- ========== 11: FAQ ========== -->
+<section class="sc" style="padding-top:3.5rem;padding-bottom:3.5rem">
+  <div style="max-width:720px;margin-bottom:2rem">
+    <h2 class="ifza-heading" style="font-size:32px;color:#0a0e2a">Questions Worth Asking <span class="ifza-gold" style="font-weight:300">Before You Set Up</span></h2>
+    <p style="margin-top:0.75rem;font-size:14.5px;color:#666;line-height:1.6">Find fast answers to common questions about Dubai company formation, residency, taxes, and free zones.</p>
+  </div>
+  <div class="faq-tabs" id="faqTabs"></div>
+  <div class="faq-grid" id="faqGrid"></div>
+</section>
+
+<!-- ========== 12: FINAL CTA ========== -->
+<section class="final-cta">
+  <img src="https://ifza.com/wp-content/uploads/2026/07/ifza-cta.webp" alt="Start your Dubai business"/>
+  <div class="final-cta-overlay"></div>
+  <div class="final-cta-inner sc">
+    <h2 class="ifza-heading" style="color:#fff;font-size:36px;max-width:720px">Don't Choose a Free Zone Yet.<br/><span class="ifza-gold" style="font-weight:300">Choose the Right Starting Point.</span></h2>
+    <p style="margin-top:1.5rem;color:rgba(255,255,255,.75);font-size:16px;max-width:520px;line-height:1.6">Tell us what you're building. We'll help you find the UAE setup that makes sense for it.</p>
+    <button class="cta-btn" onclick="scrollToForm()">BOOK YOUR FREE CONSULTATION <i data-lucide="arrow-right" style="width:18px;height:18px"></i></button>
+    <p style="margin-top:2rem;color:rgba(255,255,255,.5);font-size:14px;font-style:italic">Your business. Your ambitions. A setup built around both.</p>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="sc footer-inner">
+    <div style="display:flex;align-items:center;gap:1.5rem">
+      <img src="https://customer-assets-eiarnc6j.emergentagent.net/job_free-zone-promo/artifacts/1b5s898a_Group%2042.png" alt="Thrive" style="height:48px;width:auto;object-fit:contain"/>
+      <span style="font-size:13px">©Thrive 2026&nbsp;&nbsp;All Rights Reserved</span>
+    </div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms &amp; Conditions</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ========== DATA ==========
+const COUNTRIES=[{name:"United States",code:"+1",flag:"🇺🇸"},{name:"UAE",code:"+971",flag:"🇦🇪"},{name:"UK",code:"+44",flag:"🇬🇧"},{name:"India",code:"+91",flag:"🇮🇳"},{name:"Germany",code:"+49",flag:"🇩🇪"},{name:"France",code:"+33",flag:"🇫🇷"},{name:"Russia",code:"+7",flag:"🇷🇺"},{name:"China",code:"+86",flag:"🇨🇳"},{name:"Canada",code:"+1",flag:"🇨🇦"},{name:"Australia",code:"+61",flag:"🇦🇺"},{name:"Saudi Arabia",code:"+966",flag:"🇸🇦"},{name:"Pakistan",code:"+92",flag:"🇵🇰"},{name:"Nigeria",code:"+234",flag:"🇳🇬"},{name:"Spain",code:"+34",flag:"🇪🇸"},{name:"Italy",code:"+39",flag:"🇮🇹"},{name:"Egypt",code:"+20",flag:"🇪🇬"},{name:"South Africa",code:"+27",flag:"🇿🇦"},{name:"Turkey",code:"+90",flag:"🇹🇷"},{name:"Netherlands",code:"+31",flag:"🇳🇱"},{name:"Singapore",code:"+65",flag:"🇸🇬"}];
+const SETUP_TIMES=["Setup immediately","Setup within 3 months","Want more business setup info"];
+const QUICK_BENEFITS=[{icon:"badge-check",title:"Free Residency of UAE",desc:"Explore UAE residency pathways connected to your eligible business setup.*"},{icon:"globe",title:"Start From Anywhere",desc:"Get guidance through your setup journey remotely\u2014before you even step into the UAE."},{icon:"blocks",title:"Built Around Your Business",desc:"Your activities, future plans and requirements help shape the route we recommend."},{icon:"headset",title:"Support Beyond the License",desc:"From banking and residency to bookkeeping, Thrive stays useful after your company is established."}];
+const KEY_BENEFITS=[{icon:"target",bg:"#faf3e8",color:"#c6a03a",title:"The Right Setup for Your Plans",desc:"Your business activity, budget, visa requirements and growth plans all matter when choosing where and how to set up."},{icon:"route",bg:"#e8f8f0",color:"#10b981",title:"A Clear Path to Residency",desc:"If UAE residency is part of your plan, we help you understand the relevant options connected to your company setup."},{icon:"layers",bg:"#f3effe",color:"#8b5cf6",title:"Support for What Comes Next",desc:"Company formation is only the beginning. Banking, accounting, bookkeeping and compliance don\u2019t disappear after incorporation."},{icon:"sparkles",bg:"#fff1eb",color:"#f97316",title:"Less Guesswork. Better Decisions.",desc:"Instead of choosing a package based on the lowest price, you get guidance on the setup that actually works for what you\u2019re building."}];
+const FREE_ZONES=[{name:"IFZA Dubai",badgeColor:"#c6a03a",textColor:"#c6a03a",linkText:"Explore IFZA",image:"https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80",tagline:"For businesses that want a Dubai base.",desc:"A strong option to explore for founders looking for a Dubai-based business environment and flexibility across a wide range of professional and commercial activities.",activities:["Consultancy","Technology","Professional Services","Trading"]},{name:"RAKEZ",badgeColor:"#10b981",textColor:"#059669",linkText:"Explore RAKEZ",image:"https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=800&q=80",tagline:"For businesses that need room to build.",desc:"A versatile option worth exploring for entrepreneurs across a broad range of sectors, particularly when operational requirements and business flexibility are part of the equation.",activities:["E-Commerce","Services","Trading","Industrial & Growing"]},{name:"SPC Free Zone",badgeColor:"#8b5cf6",textColor:"#7c3aed",linkText:"Explore SPC",image:"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",tagline:"For digital-first and modern businesses.",desc:"A route we may explore for businesses looking at digital services, e-commerce and a broad range of activity-led setup options.",activities:["Digital Agencies","E-Commerce","IT Services","Media & Creative"]}];
+const BIZ_CATS=[{icon:"shopping-cart",title:"E-Commerce & Digital Business",desc:"Sell products and services online."},{icon:"briefcase",title:"Consultancy & Professional Services",desc:"Turn your expertise into a licensed business."},{icon:"trending-up",title:"Trading & Commercial Activities",desc:"Structure your eligible commercial operations."},{icon:"cpu",title:"Technology & IT",desc:"Build for the digital economy."},{icon:"palette",title:"Creative & Media",desc:"For agencies, creators and media-focused businesses."}];
+const SERVICES=[{icon:"file-text",title:"Business Setup & Licensing",desc:"Choose the right structure and get your company established."},{icon:"map-pin",title:"Residency Support",desc:"Navigate the relevant UAE residency and visa processes."},{icon:"landmark",title:"Corporate Banking Assistance",desc:"Get guidance through your next steps after incorporation."},{icon:"calculator",title:"Accounting, Bookkeeping & Tax",desc:"Keep the operational side of your business moving too."}];
+const HOW_STEPS=[{num:"01.",isGold:false,title:"Consult",desc:"Get a free customized plan to suit your needs"},{num:"02.",isGold:true,title:"Apply",desc:"Officials will process your documents"},{num:"03.",isGold:false,title:"Accept",desc:"License (and visas if needed) get approved"},{num:"04.",isGold:true,title:"Launch",desc:"Unlock UAE business benefits & scale globally"}];
+const WHY_QS=["What are you building?","What activities will you need?","Do you plan to live in the UAE?","Will you need to hire employees?","Where do you want your business to grow?"];
+const TESTIMONIALS=[{name:"Nour Bassam",text:"I highly recommend working with Thrive for anyone looking for a reliable and trustworthy partner. I had a great experience with Thrive, and I would especially like to highlight the exceptional support provided by Mr. Chady Chaar."},{name:"Mario Johansson",text:"I can absolutely recommend Thrive and the team! The processes are fast, and you always have a direct contact person available, no matter what your issue is. Thanks to the whole team!"},{name:"Elena Petrova",text:"I would like to express my sincere appreciation for the excellent customer service provided by the Sonny and Natalia support team. Every interaction was handled with care, efficiency, and a genuine commitment to customer satisfaction."},{name:"Yoanna Ilcheva",text:"I had a very positive experience with Thrive. The whole process was smooth and well organized, and I felt supported at every step. A special thank you to Omar Farfouti."},{name:"Joy Deniega",text:"I would like to express my sincere gratitude, especially to Mr. Kendrick Zuasola, for his outstanding support and assistance. He is always willing to help whenever there is an urgent process."},{name:"Lyusya Khachatryan",text:"Out of all the business setup companies I have explored, Jovanka immediately stood out for her professionalism, knowledge, and flawless English. Highly recommend without any hesitation."}];
+const FAQ_GROUPS=[{group:"Before You Get Started",items:[{q:"Can I start a UAE free zone company if I don\u2019t live in the UAE?",a:"Yes, many international entrepreneurs establish UAE free zone companies without relocating to the UAE. The exact process can depend on your chosen setup and requirements."},{q:"Do I need UAE residency to own a company?",a:"Not necessarily. In many cases, you can establish a free zone company without becoming a UAE resident. Residency may become relevant if you plan to live and work in the UAE."},{q:"Can I get UAE residency through my company?",a:"Depending on your company structure and eligibility, business owners may have access to UAE residency pathways. Thrive can guide you through the relevant options and process."},{q:"What is MOFA attestation, and will I need it?",a:"Certain documents may require attestation depending on their country of origin and purpose in the UAE. We\u2019ll help you understand which requirements apply to your setup."}]},{group:"Ownership, Activities & Structure",items:[{q:"Is it really 100% ownership?",a:"Eligible UAE free zone company structures generally allow foreign entrepreneurs to own 100% of their company."},{q:"What kind of business can I actually open in a UAE free zone?",a:"Free zones can support a broad range of businesses, including consultancy, e-commerce, technology, media, professional services and commercial activities."},{q:"Can I run multiple business activities under one license?",a:"Depending on the free zone and approved activities, compatible activities may sometimes be structured under one company licence."},{q:"How many businesses can I set up under one license?",a:"A business licence covers the legal entity and the approved activities it is authorised to carry out."}]},{group:"Free Zones & Choosing Your Route",items:[{q:"Which free zone should I choose?",a:"There isn\u2019t one universally best option. IFZA may make sense for a Dubai-based setup; RAKEZ offers a wide range of licence types; and SPC Free Zone provides activity-led options."},{q:"Which free zone is the cheapest?",a:"The cheapest option isn\u2019t always the most cost-effective one. Your business activities, visa needs and future plans matter too."},{q:"Can I change or add business activities later?",a:"In many cases, changes or additions may be possible, subject to the rules of your chosen free zone, licence type and required approvals."}]},{group:"Hiring, Growth & Running Your Business",items:[{q:"Can I hire employees through my free zone company?",a:"Yes. The number of employees or visas your company can support may depend on your chosen setup, facility requirements and company structure."},{q:"Do I get support after my company is established?",a:"Yes. Thrive can continue supporting your business with services such as banking assistance, accounting, bookkeeping and tax-related requirements."},{q:"What discounts are available on multi-year business licenses?",a:"Eligible multi-year licence packages may qualify for promotional savings. Our current campaign advertises up to 30% off eligible multi-year business licenses*. Terms and eligibility apply."}]}];
+const MARQUEE=[{prefix:"Fast-Track",text:"Licensing",h:false},{prefix:"75,000+",text:"Entrepreneurs Served",h:true},{prefix:"UAE",text:"Residency Pathways",h:false},{prefix:"100%",text:"Foreign Ownership",h:true},{prefix:"0%",text:"Personal Income Tax",h:true},{prefix:"Strategic",text:"Global Location",h:false},{prefix:"Remote",text:"Company Setup",h:false},{prefix:"50+",text:"Free Zones Explored",h:true},{prefix:"100%",text:"Capital & Profit Repatriation",h:true},{prefix:"Corporate",text:"Banking Assistance",h:false},{prefix:"Multi-Year",text:"License Savings",h:false}];
+
+// ========== HELPERS ==========
+function scrollToForm(){const f=document.querySelector('[data-form]');if(f)f.scrollIntoView({behavior:'smooth',block:'start'})}
+
+function buildForm(containerId){
+  const c=document.getElementById(containerId);if(!c)return;
+  const opts=COUNTRIES.map(cc=>`<option value="${cc.code}">${cc.flag} ${cc.code}</option>`).join('');
+  const timeOpts=SETUP_TIMES.map(t=>`<option value="${t}">${t}</option>`).join('');
+  c.innerHTML=`<form class="consultation-form" data-form onsubmit="handleSubmit(event)">
+    <div class="dot-pattern" style="width:56px;height:40px;opacity:.6;display:none"></div>
+    <h2 class="ifza-heading">Get Business<br/>Setup Advice</h2>
+    <div class="form-row"><input class="form-input" placeholder="First Name" name="firstName" required/><input class="form-input" placeholder="Last Name" name="lastName"/></div>
+    <div style="margin-bottom:.875rem"><input class="form-input" placeholder="What is your nationality?" name="nationality"/></div>
+    <div style="margin-bottom:.875rem"><input class="form-input" placeholder="Email Address" type="email" name="email" required/></div>
+    <div class="phone-row"><select name="dialCode">${opts}</select><input placeholder="(201) 555-0123" name="phone"/></div>
+    <select class="setup-select" name="setupTime"><option value="" disabled selected>When would you like to setup a Dubai company?</option>${timeOpts}</select>
+    <div class="consent-group">
+      <label class="consent-label"><input type="checkbox" name="c1" required/><span>I understand this is strictly for business setup enquiries, no other requests will be processed.</span></label>
+      <label class="consent-label"><input type="checkbox" name="c2" required/><span>I consent to the processing of my personal data as outlined in the <strong style="text-decoration:underline">Privacy Policy</strong>.</span></label>
+      <label class="consent-label"><input type="checkbox" name="c3"/><span>I consent to receiving marketing communications as outlined in the <strong style="text-decoration:underline">Privacy Policy</strong> (Optional).</span></label>
+    </div>
+    <button type="submit" class="form-submit">BOOK FREE CONSULTATION <i data-lucide="arrow-right" style="width:17px;height:17px"></i></button>
+  </form>`;
+}
+
+function handleSubmit(e){e.preventDefault();const fd=new FormData(e.target);const d=Object.fromEntries(fd);d.at=new Date().toISOString();const s=JSON.parse(localStorage.getItem('ifza_leads')||'[]');s.push(d);localStorage.setItem('ifza_leads',JSON.stringify(s));alert('Thank you! Our team will contact you shortly to book your free consultation.');e.target.reset()}
+
+// ========== RENDER SECTIONS ==========
+function init(){
+  // Forms
+  buildForm('heroFormDesktop');buildForm('heroFormMobile');
+
+  // Stats bar
+  const track=document.getElementById('statsTrack');
+  const allM=[...MARQUEE,...MARQUEE];
+  track.innerHTML=allM.map(m=>`<div class="stats-item"><span style="font-size:13px;letter-spacing:.03em">${m.h?`<strong style="color:#c6a03a;font-weight:600">${m.prefix}</strong> <span style="color:rgba(255,255,255,.8)">${m.text}</span>`:`<span style="color:rgba(255,255,255,.85)"><span style="color:#fff;font-weight:500">${m.prefix}</span> ${m.text}</span>`}</span><span class="stats-dot"></span></div>`).join('');
+
+  // Quick Benefits Mobile
+  document.getElementById('qbMobile').innerHTML=QUICK_BENEFITS.map(b=>`<div><h3>${b.title}</h3><p>${b.desc}</p><div class="qb-line"></div></div>`).join('');
+  // Quick Benefits Desktop
+  document.getElementById('qbDesktop').innerHTML=QUICK_BENEFITS.map(b=>`<div class="qb-card"><div class="qb-icon"><i data-lucide="${b.icon}" style="width:26px;height:26px;color:#c6a03a"></i></div><h3>${b.title}</h3><p>${b.desc}</p></div>`).join('');
+
+  // Key Benefits Mobile
+  document.getElementById('kbMobile').innerHTML=KEY_BENEFITS.map(b=>`<div class="kb-mobile-card" onclick="scrollToForm()"><div class="kb-icon-row"><div class="kb-icon-box" style="background:${b.bg}"><i data-lucide="${b.icon}" style="width:18px;height:18px;color:${b.color}"></i></div><i data-lucide="arrow-up-right" style="width:15px;height:15px;color:#9ca3af"></i></div><h3>${b.title}</h3><p>${b.desc}</p></div>`).join('');
+  // Key Benefits Desktop
+  document.getElementById('kbDesktop').innerHTML=KEY_BENEFITS.map(b=>`<div class="kb-desktop-card" onclick="scrollToForm()"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem"><div style="width:48px;height:48px;border-radius:.75rem;display:flex;align-items:center;justify-content:center;background:${b.bg}"><i data-lucide="${b.icon}" style="width:22px;height:22px;color:${b.color}"></i></div><i data-lucide="arrow-up-right" style="width:19px;height:19px;color:#9ca3af"></i></div><h3 style="font-size:19px;font-weight:700;color:#111827;line-height:1.3;margin-bottom:.625rem">${b.title}</h3><p style="font-size:13.5px;line-height:1.6;color:#4b5563">${b.desc}</p></div>`).join('');
+
+  // Free Zones
+  document.getElementById('fzGrid').innerHTML=FREE_ZONES.map(z=>`<div class="fz-card swipe-item"><div class="fz-img"><img src="${z.image}" alt="${z.name}"/><div class="fz-badge"><span class="fz-badge-dot" style="background:${z.badgeColor}"></span>${z.name}</div></div><div class="fz-body"><h3>${z.tagline}</h3><p>${z.desc}</p><div><p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#9ca3af;margin-bottom:.625rem">OFTEN CONSIDERED FOR</p><div class="fz-tags">${z.activities.map(a=>`<span class="fz-tag">${a}</span>`).join('')}</div><button class="fz-link" style="color:${z.textColor}" onclick="scrollToForm()">${z.linkText} <i data-lucide="arrow-right" style="width:15px;height:15px"></i></button></div></div></div>`).join('');
+
+  // Business Activities
+  document.getElementById('baGrid').innerHTML=BIZ_CATS.map(c=>`<div class="ba-card"><div class="ba-icon"><i data-lucide="${c.icon}" style="width:20px;height:20px"></i></div><div><h3>${c.title}</h3><p>${c.desc}</p></div></div>`).join('');
+
+  // Thrive Services Mobile
+  document.getElementById('tsMobile').innerHTML=SERVICES.map(s=>`<div class="ts-mobile-card"><div class="ts-mobile-icon"><i data-lucide="${s.icon}" style="width:24px;height:24px"></i></div><h3>${s.title}</h3><p>${s.desc}</p></div>`).join('');
+  // Thrive Services Desktop
+  document.getElementById('tsDesktop').innerHTML=SERVICES.map(s=>`<div class="ts-desktop-card"><div class="ts-desktop-icon"><i data-lucide="${s.icon}" style="width:26px;height:26px;color:#c6a03a"></i></div><h3>${s.title}</h3><p>${s.desc}</p></div>`).join('');
+
+  // How It Works Mobile
+  document.getElementById('howMobile').innerHTML=`<div class="how-vline"></div>${HOW_STEPS.map(s=>`<div class="how-step"><div class="how-dot" style="border-color:${s.isGold?'#c6a03a':'#1c1c1c'}"><div class="how-dot-inner" style="background:${s.isGold?'#c6a03a':'#1c1c1c'}"></div></div><span style="font-size:32px;font-weight:300;line-height:1;margin-bottom:4px;display:block;color:${s.isGold?'#c6a03a':'#1c1c1c'}">${s.num}</span><h3 style="font-size:18px;font-weight:700;color:#1c1c1c;margin-bottom:4px">${s.title}</h3><p style="font-size:13.5px;color:#4b5563;line-height:1.6;max-width:280px">${s.desc}</p></div>`).join('')}`;
+  // How It Works Desktop
+  document.getElementById('howDesktop').innerHTML=`<div class="how-desktop-grid">${HOW_STEPS.map(s=>`<div class="how-desktop-step"><span style="font-size:48px;font-weight:300;line-height:1;display:block;user-select:none;color:${s.isGold?'#c6a03a':'#1c1c1c'}">${s.num}</span><div class="how-connector"><span></span><span class="how-connector-dot" style="background:${s.isGold?'#c6a03a':'#1c1c1c'}"></span><span></span></div><h3 style="font-size:20px;font-weight:700;color:#1c1c1c;margin-bottom:6px;line-height:1.3">${s.title}</h3><p style="font-size:14px;color:#4b5563;line-height:1.6;max-width:180px;margin:0 auto">${s.desc}</p></div>`).join('')}</div>`;
+
+  // Why Thrive
+  document.getElementById('wtBullets').innerHTML=WHY_QS.map(q=>`<li class="wt-bullet"><span class="wt-circle"><i data-lucide="check" style="width:12px;height:12px;color:#c6a03a"></i></span>${q}</li>`).join('');
+
+  // Testimonials
+  document.getElementById('testRow').innerHTML=TESTIMONIALS.map(t=>`<div class="test-card"><div style="display:flex;align-items:center;gap:.875rem;margin-bottom:1rem"><div class="test-avatar">${t.name.charAt(0)}</div><div><p class="test-name">${t.name}</p><p class="test-stars">★★★★★</p></div></div><p class="test-text">${t.text}</p></div>`).join('');
+
+  // FAQ
+  renderFAQ('all');
+
+  // Initialize Lucide icons
+  lucide.createIcons();
+}
+
+function renderFAQ(activeTab){
+  const tabsEl=document.getElementById('faqTabs');
+  const cats=[{id:'all',label:'All Questions'},...FAQ_GROUPS.map((g,i)=>({id:'grp-'+i,label:g.group}))];
+  tabsEl.innerHTML=cats.map(c=>`<button class="faq-tab ${activeTab===c.id?'active':''}" onclick="renderFAQ('${c.id}')">${c.label}</button>`).join('');
+  let items=[];
+  if(activeTab==='all'){FAQ_GROUPS.forEach((g,gi)=>g.items.forEach((it,ii)=>items.push({...it,id:'faq-'+gi+'-'+ii})))}
+  else{const idx=parseInt(activeTab.replace('grp-',''));(FAQ_GROUPS[idx]?.items||[]).forEach((it,ii)=>items.push({...it,id:'faq-t-'+ii}))}
+  document.getElementById('faqGrid').innerHTML=items.map(f=>`<div class="faq-item" id="${f.id}"><div class="faq-q" onclick="toggleFaq('${f.id}')"><span style="flex:1;padding-right:.75rem">${f.q}</span><i data-lucide="plus" style="width:18px;height:18px"></i></div><div class="faq-a">${f.a}</div></div>`).join('');
+  lucide.createIcons();
+}
+function toggleFaq(id){const el=document.getElementById(id);el.classList.toggle('open')}
+
+function scrollTests(dir){const el=document.getElementById('testRow');const amt=dir==='left'?-el.clientWidth*.85:el.clientWidth*.85;el.scrollBy({left:amt,behavior:'smooth'})}
+
+// ========== INIT ==========
+document.addEventListener('DOMContentLoaded',init);
+</script>
+</body>
+</html>
