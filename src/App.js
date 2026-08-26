@@ -13,6 +13,11 @@ import LowerSections from "./components/LowerSections";
 const Landing = () => {
   useEffect(() => {
     document.title = "Thrive Consultant";
+    const links = document.querySelectorAll("link[rel*='icon']");
+    links.forEach((l) => {
+      l.href = "/favicon.png";
+      l.type = "image/png";
+    });
   }, []);
 
   return (
