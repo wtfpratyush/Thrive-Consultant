@@ -14,17 +14,6 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{margin:0!important;padding:0!important;width:100%!important;max-width:100%!important;overflow-x:hidden}
 body{font-family:'Jost',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased;color:#1c1c1c;background:#fff}
-/* GHL override – nuke ALL parent wrapper margins/padding */
-html>body>div,body>div,body>div>div,body>div>div>div,
-.container,.row,.col,.col-12,.col-lg-12,.col-md-12,.col-sm-12,.col-xs-12,
-.inner,.section,.hl_page-preview--content,.hl-page-creator,.c-editor,
-.lc-block,.lc_text_block,.lc_html_block,.lc_code_block,
-#preview-container,#preview,.page-content,.site-page,
-[class*="section"],[class*="container"],[class*="column"],[class*="inner"],
-[class*="preview"],[class*="block"],[class*="wrapper"],[class*="content"],
-[id*="section"],[id*="preview"],[id*="container"],[id*="content"]{
-  margin:0!important;padding:0!important;max-width:100%!important;width:100%!important;border:none!important;
-}
 img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;border:none;background:none;font-family:inherit}
@@ -32,7 +21,8 @@ input,select,textarea{font-family:inherit}
 ul{list-style:none}
 
 /* Utility */
-.sc{max-width:1200px;margin:0 auto;padding-left:1.5rem;padding-right:1.5rem}
+.sc{max-width:1200px!important;margin-left:auto!important;margin-right:auto!important;padding-left:1.5rem!important;padding-right:1.5rem!important;width:100%!important;box-sizing:border-box!important}
+@media(min-width:768px){.sc{padding-left:2rem!important;padding-right:2rem!important}}
 .ifza-gold{color:#c6a03a}
 .ifza-heading{font-weight:300;line-height:1.08;letter-spacing:-0.01em}
 .dot-pattern{background-image:radial-gradient(#c9c9c9 1.4px,transparent 1.4px);background-size:11px 11px}
@@ -334,6 +324,7 @@ input::placeholder{color:#8a8a8a}
 </style>
 </head>
 <body>
+<div id="thrive-app">
 
 <!-- ========== 01: HERO ========== -->
 <section class="hero">
@@ -555,6 +546,7 @@ input::placeholder{color:#8a8a8a}
     </div>
   </div>
 </footer>
+</div>
 
 <script>
 // ========== DATA ==========
@@ -663,10 +655,20 @@ function scrollTests(dir){const el=document.getElementById('testRow');const amt=
 // ========== INIT ==========
 document.addEventListener('DOMContentLoaded',function(){
   init();
-  // Strip margins/padding from ALL parent wrappers (GHL fix)
+  // Strip padding/margin from GHL parent wrappers outside #thrive-app
   setTimeout(function(){
-    var el=document.querySelector('.hero');
-    if(el){var p=el.parentElement;while(p&&p!==document.documentElement){p.style.cssText='margin:0!important;padding:0!important;max-width:100%!important;width:100%!important;border:none!important;';p=p.parentElement;}}
+    var landing=document.getElementById('thrive-app');
+    if(landing){
+      var p=landing.parentElement;
+      while(p && p!==document.documentElement){
+        p.style.setProperty('margin','0','important');
+        p.style.setProperty('padding-left','0','important');
+        p.style.setProperty('padding-right','0','important');
+        p.style.setProperty('max-width','100%','important');
+        p.style.setProperty('width','100%','important');
+        p=p.parentElement;
+      }
+    }
   },100);
 });
 </script>
