@@ -32,6 +32,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{margin:0!important;padding:0!important;width:100%!important;max-width:100%!important;overflow-x:hidden}
@@ -368,15 +369,49 @@ input::placeholder{color:#8a8a8a}
           <li class="hero-bullet"><span class="circle"><i data-lucide="check" style="width:15px;height:15px"></i></span>30% off Multi-Year Business Licenses*</li>
         </ul>
       </div>
-      <div class="hero-form-desktop" id="heroFormDesktop">
-        <!-- Form rendered by JS -->
+      <div class="hero-form-desktop" id="heroFormDesktop" data-form>
+        <iframe
+            src="https://api.leadconnectorhq.com/widget/form/49bMXA9bSSp1aned7biq"
+            style="width:100%;height:100%;min-height:780px;border:none;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,.15);background:#fff"
+            id="inline-49bMXA9bSSp1aned7biq" 
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Form 3"
+            data-height="807"
+            data-layout-iframe-id="inline-49bMXA9bSSp1aned7biq"
+            data-form-id="49bMXA9bSSp1aned7biq"
+            title="Form 3"
+        ></iframe>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Form Mobile -->
-<section class="form-mobile sc" id="heroFormMobile"></section>
+<section class="form-mobile sc" id="heroFormMobile" data-form>
+  <iframe
+      src="https://api.leadconnectorhq.com/widget/form/49bMXA9bSSp1aned7biq"
+      style="width:100%;height:100%;min-height:780px;border:none;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,.15);background:#fff"
+      id="inline-49bMXA9bSSp1aned7biq-mobile" 
+      data-layout="{'id':'INLINE'}"
+      data-trigger-type="alwaysShow"
+      data-trigger-value=""
+      data-activation-type="alwaysActivated"
+      data-activation-value=""
+      data-deactivation-type="neverDeactivate"
+      data-deactivation-value=""
+      data-form-name="Form 3"
+      data-height="807"
+      data-layout-iframe-id="inline-49bMXA9bSSp1aned7biq-mobile"
+      data-form-id="49bMXA9bSSp1aned7biq"
+      title="Form 3"
+  ></iframe>
+</section>
 
 <!-- ========== STATS BAR ========== -->
 <section class="stats-bar marquee-mask">
@@ -588,34 +623,8 @@ const MARQUEE=[{prefix:"Fast-Track",text:"Licensing",h:false},{prefix:"75,000+",
 // ========== HELPERS ==========
 function scrollToForm(){const f=document.querySelector('[data-form]');if(f)f.scrollIntoView({behavior:'smooth',block:'start'})}
 
-function buildForm(containerId){
-  const c=document.getElementById(containerId);if(!c)return;
-  const opts=COUNTRIES.map(cc=>`<option value="${cc.code}">${cc.flag} ${cc.code}</option>`).join('');
-  const timeOpts=SETUP_TIMES.map(t=>`<option value="${t}">${t}</option>`).join('');
-  c.innerHTML=`<form class="consultation-form" data-form onsubmit="handleSubmit(event)">
-    <div class="dot-pattern" style="width:56px;height:40px;opacity:.6;display:none"></div>
-    <h2 class="ifza-heading">Get Business<br/>Setup Advice</h2>
-    <div class="form-row"><input class="form-input" placeholder="First Name" name="firstName" required/><input class="form-input" placeholder="Last Name" name="lastName"/></div>
-    <div style="margin-bottom:.875rem"><input class="form-input" placeholder="What is your nationality?" name="nationality"/></div>
-    <div style="margin-bottom:.875rem"><input class="form-input" placeholder="Email Address" type="email" name="email" required/></div>
-    <div class="phone-row"><select name="dialCode">${opts}</select><input placeholder="(201) 555-0123" name="phone"/></div>
-    <select class="setup-select" name="setupTime"><option value="" disabled selected>When would you like to setup a Dubai company?</option>${timeOpts}</select>
-    <div class="consent-group">
-      <label class="consent-label"><input type="checkbox" name="c1" required/><span>I understand this is strictly for business setup enquiries, no other requests will be processed.</span></label>
-      <label class="consent-label"><input type="checkbox" name="c2" required/><span>I consent to the processing of my personal data as outlined in the <strong style="text-decoration:underline">Privacy Policy</strong>.</span></label>
-      <label class="consent-label"><input type="checkbox" name="c3"/><span>I consent to receiving marketing communications as outlined in the <strong style="text-decoration:underline">Privacy Policy</strong> (Optional).</span></label>
-    </div>
-    <button type="submit" class="form-submit">BOOK FREE CONSULTATION <i data-lucide="arrow-right" style="width:17px;height:17px"></i></button>
-  </form>`;
-}
-
-function handleSubmit(e){e.preventDefault();const fd=new FormData(e.target);const d=Object.fromEntries(fd);d.at=new Date().toISOString();const s=JSON.parse(localStorage.getItem('ifza_leads')||'[]');s.push(d);localStorage.setItem('ifza_leads',JSON.stringify(s));alert('Thank you! Our team will contact you shortly to book your free consultation.');e.target.reset()}
-
 // ========== RENDER SECTIONS ==========
 function init(){
-  // Forms
-  buildForm('heroFormDesktop');buildForm('heroFormMobile');
-
   // Stats bar
   const track=document.getElementById('statsTrack');
   const allM=[...MARQUEE,...MARQUEE];
